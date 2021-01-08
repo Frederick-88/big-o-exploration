@@ -7,8 +7,7 @@
 // Note :
 // - numbers could be negative (-1,etc)
 
-const numbers = [1, 2, 3, 9];
-const numbers2 = [6, 4, 3, 2, 1, 7];
+// ------------------------------------------------------------------------------------------
 
 // 1st Solution ->
 // Time Complexity = O(n^2)
@@ -59,5 +58,8 @@ const hasPairWithSum3 = (array, sum) => {
     container.push(sum - array[index]);
   });
 };
+
+const numbers = [1, 2, 3, 9];
+const numbers2 = [6, 4, 3, 2, 1, 7];
 
 hasPairWithSum3(numbers2, 9);
