@@ -16,8 +16,8 @@ const numbers2 = [6, 4, 3, 2, 1, 7];
 
 function hasPairWithSum(array, sum) {
   var length = array.length;
-  for (var i = 0; i < length - 1; i++) {
-    for (var j = i + 1; j < length; j++) {
+  for (var i = 0; i < length - 1; i++) { // start-index : 0 , end-index : 10 - 1 (9)
+    for (var j = i + 1; j < length; j++) { // start-index : 1 , end-index : 10
       if (array[i] + array[j] === sum) {
         console.log(true);
         return true;
@@ -27,7 +27,7 @@ function hasPairWithSum(array, sum) {
   return false;
 }
 
-// 2nd Solution ( Better ) ->
+// 2nd Solution ( Better for Big Datas ) ->
 // Time Complexity = O(n)
 // Space Complexity = O(1)
 
@@ -45,4 +45,19 @@ function hasPairWithSum2(arr, sum) {
   return false;
 }
 
-hasPairWithSum2(numbers2, 9);
+// 3rd Solution ( Better Readablity ) ->
+// Time Complexity = O(n) - can improve to O(1) if use 'for' javascript & break;
+// Space Complexity = O(1)
+
+const hasPairWithSum3 = (array, sum) => {
+  const container = [];
+  array.forEach((number, index) => {
+    //  e.g -> sum = 9, if we receive 6 - then we just need to search for 3 right ? if there is 3, then we can assume the array got pair that matches the sum
+    if (container.includes(array[index])) {
+      console.log(true);
+    }
+    container.push(sum - array[index]);
+  });
+};
+
+hasPairWithSum3(numbers2, 9);
